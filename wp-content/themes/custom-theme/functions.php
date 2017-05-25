@@ -357,8 +357,28 @@ function twentyseventeen_widgets_init() {
 		'description'   => __( 'Add widgets here to appear in your footer.', 'twentyseventeen' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
-		'before_title'  => '',
-		'after_title'   => '',
+		'before_title'  => '<p class="hidden">',
+		'after_title'   => '</p>',
+	) );
+
+	register_sidebar( array(
+		'name'          => __( 'Home 3', 'twentyseventeen' ),
+		'id'            => 'sidebar-6',
+		'description'   => __( 'Add widgets here to appear in your footer.', 'twentyseventeen' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<p class="hidden">',
+		'after_title'   => '</p>',
+	) );
+
+	register_sidebar( array(
+		'name'          => __( 'Page 1', 'twentyseventeen' ),
+		'id'            => 'sidebar-7',
+		'description'   => __( 'Add widgets here to appear in your footer.', 'twentyseventeen' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<p class="hidden">',
+		'after_title'   => '</p>',
 	) );
 }
 add_action( 'widgets_init', 'twentyseventeen_widgets_init' );

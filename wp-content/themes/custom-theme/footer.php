@@ -1,8 +1,11 @@
 <section class="footer clear">
-    <div class="col-md-12 content footer-content" style="height:300px;background-image: url('<?php echo get_template_directory_uri() . "/assets/images/home/footer-min.png"; ?>');background-size: cover;background-position: center;">
+    <div class="col-md-12 footer-content footer-content-inner" style="background-image: url('<?php echo get_template_directory_uri() . "/assets/images/inner/footer-inner-min.png"; ?>');background-size: cover;background-position: center;">
         <br/>
-        <div style="height: 145px;margin-top: 35px;">
-            <div class="center">
+        <div style="margin-top: 35px;">
+            <h1 class="center color-white">LOREM IPSUM</h1>
+            <p class="center color-white" style="width: 70%;margin:0 auto;">This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit.</p>
+  
+            <div class="center" style="margin-top:30px;margin-bottom: 40px;">
                 <a href="#" class="more-button">LEARN MORE</a>
             </div>
         </div>
@@ -10,7 +13,7 @@
         <div class="col-md-12 no-space">
             <div class="container">
                 <div class="col-sm-12 col-md-9 left footer-copyright c-section">
-                    <p class="" style="color: white;font-weight: 400;font-size: 15px;">Copyright © 2017 Home Contractors -  All rights reserved. Disclaimer</p>
+                    <p class="" style="color: white;font-weight: 400;font-size: 15px;position: relative;top: 5px;">Copyright © 2017 Home Contractors -  All rights reserved. Disclaimer</p>
                 </div>
                 <div class="col-sm-12 col-md-3 right footer-copyright social-section" style="position: relative;bottom: 5px;">
                     <div class="col-md-3 left no-space social-mobile"> 
