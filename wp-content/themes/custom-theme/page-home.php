@@ -40,41 +40,16 @@ Template Name: Homepage
         <img class="cover" src="<?php echo get_template_directory_uri() . "/assets/images/home/banner-2-min.png"; ?>"/>
     </div>
     <div class="col-sm-12 col-md-12 col-lg-6 no-space left  mobile-liquid" style="height: 600px;background-color: #2e2d35;">
-        <div class="content-right vertical-center-c1">
-            <h1 class="bold color-white">Lorem ipsum dolor</h1>
-            <br/>
-            <p class="color-white default">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.</p><br/>
-            <p class="color-white default">Cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam.</p>
-        </div>
+        <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('home-2') ) : ?>
+        <?php endif; ?>
     </div>
 </div>
 </section>
 <section class="service-1 clear">
 <div class="col-md-12 content" style="background-color:#d29010;">
-    <div class="container">
-        <h1 class="bold color-white center default">Lorem ipsum dolor</h1>
-        <div class="col-md-12 no-space" style="margin-top:50px !important;">
-             <div class="col-xs-12 col-sm-6 col-md-3 left">
-                <i class="fa fa-pencil-square-o color-white center" aria-hidden="true" style="font-size: 67px;width: 100%;margin: 0 auto;"></i>
-                <h3 class="color-white center">Lorem ipsum dolor sit</h3>
-                <p class="default color-white center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut</p>
-             </div>
-             <div class="col-xs-12 col-sm-6 col-md-3 left">
-                <i class="fa fa-thumbs-o-up color-white center" aria-hidden="true" style="font-size: 67px;width: 100%;margin: 0 auto;"></i>
-                <h3 class="color-white center">Lorem ipsum dolor sit</h3>
-                <p class="default color-white center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut</p>
-             </div>
-             <div class="col-xs-12 col-sm-6 col-md-3 left">
-                <i class="fa fa-star color-white center" aria-hidden="true" style="font-size: 67px;width: 100%;margin: 0 auto;"></i>
-                <h3 class="color-white center">Lorem ipsum dolor sit</h3>
-                <p class="default color-white center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut</p>
-             </div>
-             <div class="col-xs-12 col-sm-6 col-md-3 left">
-                <i class="fa fa-truck color-white center" aria-hidden="true" style="font-size: 67px;width: 100%;margin: 0 auto;"></i>
-                <h3 class="color-white center">Lorem ipsum dolor sit</h3>
-                <p class="default color-white center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut</p>
-             </div>
-        </div>
+    <div class="container">        
+        <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('home-1') ) : ?>
+        <?php endif; ?>
     </div>
 </div>
 </section>
@@ -83,34 +58,42 @@ Template Name: Homepage
     <div class="container">
         <h1 class="bold color-white center default">Lorem ipsum dolor</h1>
         <div class="col-md-12 no-space service-2-container" style="margin-top:50px !important;">
-             <div class="col-xs-12 col-sm-6 col-md-3 left service-block">
-                <img class="cover" style="max-height:400px;" src="<?php echo get_template_directory_uri() . "/assets/images/home/project-1-min.png"; ?>"/>
-                <br class="clear" /><br/>
-                <div class="center">
-                    <a href="#" class="view-button">VIEW</a>
+            <?php    
+                $args = array(
+                'post_type' => 'services',
+                'posts_per_page' => 9,
+                'order' => 'ASC'
+                );
+                 
+                $the_query = new WP_Query( $args );
+                 
+                if ( $the_query->have_posts() ) {
+                while ( $the_query->have_posts() ) {
+                $the_query->the_post();
+                $cf_excerpt = get_post_meta($post->ID, 'services_excerpt', $single);            
+            ?>
+
+                <?php 
+                    $image = "";
+                    if (has_post_thumbnail( $post->ID ) ){
+                        $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
+                    }
+                ?>
+                <div class="col-xs-12 col-sm-6 col-md-3 left service-block">
+                    <img class="cover" style="max-height:400px;" src="<?php echo $image[0]; ?>"/>
+                    <br class="clear" /><br/>
+                    <div class="center">
+                        <a href="<?php echo $post->guid; ?>" class="view-button">VIEW</a>
+                    </div>
                 </div>
-             </div>
-             <div class="col-xs-12 col-sm-6 col-md-3 left service-block">
-                <img class="cover" style="max-height:400px;" src="<?php echo get_template_directory_uri() . "/assets/images/home/project-2-min.png"; ?>"/>
-                <br class="clear" /><br/>
-                <div class="center">
-                    <a href="#" class="view-button">VIEW</a>
-                </div>
-             </div>
-             <div class="col-xs-12 col-sm-6 col-md-3 left service-block">
-                <img class="cover" style="max-height:400px;" src="<?php echo get_template_directory_uri() . "/assets/images/home/project-3-min.png"; ?>"/>
-                <br class="clear" /><br/>
-                <div class="center">
-                    <a href="#" class="view-button">VIEW</a>
-                </div>
-             </div>
-             <div class="col-xs-12 col-sm-6 col-md-3 left service-block">
-                <img class="cover" style="max-height:400px;" src="<?php echo get_template_directory_uri() . "/assets/images/home/project-4-min.png"; ?>"/>
-                <br class="clear" /><br/>
-                <div class="center">
-                    <a href="#" class="view-button">VIEW</a>
-                </div>
-             </div>
+            <?php
+                }
+                } else {
+                // no posts found
+                }
+                /* Restore original Post Data */
+                wp_reset_postdata();         
+            ?>             
         </div>
     </div>
 </div>

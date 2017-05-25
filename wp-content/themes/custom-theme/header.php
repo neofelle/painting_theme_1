@@ -47,8 +47,14 @@
 						<?php foreach( $items as $item ){ ?>
 							<li class="smaller-li"><a href="<?php echo $item->url; ?>" class="left"><?php echo $item->title; ?></a></li>	
 						<?php } ?>				
-						
-						<li class="smaller-li contact-menu" style="padding-left: 15px;"><i class="fa fa-phone color-white left contact-icon" aria-hidden="true"></i><p class="left" style="font-size: 15px;color: #386b08;font-weight: bold;margin-top: 15px;"><a href="#" style="font-size: 16px;">123-1234-123</a></p></li>
+						<?php                   
+					        $header_number    = $GLOBALS['cgv']['default-contact-number'];
+					        $cf_header_number = get_post_meta($post->ID, 'header_contact_number', true);                    
+					        if( $cf_header_number != "" ){
+					            $header_number = $cf_header_number;
+					        }
+					    ?>
+						<li class="smaller-li contact-menu" style="padding-left: 15px;"><i class="fa fa-phone color-white left contact-icon" aria-hidden="true"></i><p class="left" style="font-size: 15px;color: #386b08;font-weight: bold;margin-top: 15px;"><a href="tel:+<?php echo str_replace("-", "", $header_number); ?>" style="font-size: 16px;"><?php echo $header_number; ?></a></p></li>
 					</ul>
 				</nav>			
 			</div>
